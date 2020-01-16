@@ -44,6 +44,7 @@ SRC	=	blink.c blink8.c blink12.c					\
 		speed.c wfi.c isr.c isr-osc.c					\
 		lcd.c lcd-adafruit.c clock.c					\
 		nes.c								\
+		dac.c								\
 		softPwm.c softTone.c 						\
 		delayTest.c serialRead.c serialTest.c okLed.c ds1302.c		\
 		lowPower.c							\
@@ -72,6 +73,10 @@ blink8:	blink8.o
 blink12drcs:	blink12drcs.o
 	$Q echo [link]
 	$Q $(CC) -o $@ blink12drcs.o $(LDFLAGS) $(LDLIBS)
+	
+dac:	dac.o
+	@echo [link]
+	@$(CC) -o $@ dac.o $(LDFLAGS) $(LDLIBS)
 
 blink12:	blink12.o
 	$Q echo [link]
